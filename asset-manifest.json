@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/glazachevand/react-sultan/static/css/main.33521914.css",
+    "main.js": "/glazachevand/react-sultan/static/js/main.1671f014.js",
+    "static/media/Inter-ExtraBold.woff2": "/glazachevand/react-sultan/static/media/Inter-ExtraBold.2ec83edd371bbc045b67.woff2",
+    "static/media/Inter-SemiBold.woff2": "/glazachevand/react-sultan/static/media/Inter-SemiBold.5a117ddf87e622d6fc44.woff2",
+    "static/media/Inter-Bold.woff2": "/glazachevand/react-sultan/static/media/Inter-Bold.7c799d9d3b6eb69ff3ff.woff2",
+    "static/media/Inter-Medium.woff2": "/glazachevand/react-sultan/static/media/Inter-Medium.91f917345859813d1051.woff2",
+    "static/media/Inter-Light.woff2": "/glazachevand/react-sultan/static/media/Inter-Light.f6095a62af4962058deb.woff2",
+    "static/media/Inter-Black.woff2": "/glazachevand/react-sultan/static/media/Inter-Black.24cd38aefa742b0c32b5.woff2",
+    "static/media/Inter-Regular.woff2": "/glazachevand/react-sultan/static/media/Inter-Regular.1d74b9e735a93aef01df.woff2",
+    "static/media/icons.woff2": "/glazachevand/react-sultan/static/media/icons.bd0de849519912a34161.woff2",
+    "index.html": "/glazachevand/react-sultan/index.html",
+    "main.33521914.css.map": "/glazachevand/react-sultan/static/css/main.33521914.css.map",
+    "main.1671f014.js.map": "/glazachevand/react-sultan/static/js/main.1671f014.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33521914.css",
+    "static/js/main.1671f014.js"
+  ]
+}
