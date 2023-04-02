@@ -1,0 +1,254 @@
+@import "./../base/vars";
+
+.footer {
+  background-color: $darkBlue;
+  padding: 71px 0 116px;
+  color: #fff;
+  @media (max-width: $xl) {
+    padding: 30px 0 30px;
+  }
+  @media (max-width: $md) {
+    padding: 16px 0 15px;
+  }
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: $yellow;
+  }
+  h3 {
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+    @media (max-width: $md) {
+      margin-bottom: 20px;
+    }
+  }
+  &__link {
+    line-height: 1.5;
+    white-space: nowrap;
+    @media (max-width: $md) {
+      font-size: 12px;
+    }
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    column-gap: 4.3%;
+    @media (max-width: $md) {
+      flex-direction: column;
+      row-gap: 30px;
+    }
+  }
+  &__logo-container {
+    flex: 0 1 23.4%;
+    @media (max-width: $lg) {
+      flex: 0 1 35%;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 25px 6%;
+    @media (max-width: $xl) {
+      grid-template-columns: repeat(2, auto);
+    }
+    @media (max-width: $sm) {
+      gap: 25px 0;
+    }
+  }
+  &__price-list-container {
+    @media (max-width: $xl) {
+      order: 1;
+    }
+  }
+}
+.logo-container {
+  &__logo {
+    display: inline-block;
+    margin-bottom: 15px;
+    img {
+      @media (max-width: $md) {
+        width: 97px;
+      }
+    }
+  }
+  &__description {
+    margin-bottom: 45px;
+    font-size: 1rem;
+    line-height: 1.5;
+    @media (max-width: $md) {
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+  }
+}
+.subscription {
+  position: relative;
+  width: 88%;
+  @media (max-width: $md) {
+    width: 290px;
+  }
+  &__label {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  &__input {
+    padding: 22px;
+    width: 100%;
+    color: $darkBlue;
+    font-size: 1rem;
+    background-color: #fff;
+    border-radius: 36px;
+    @media (max-width: $md) {
+      padding: 20px;
+    }
+    &::placeholder {
+      font-size: 12px;
+      line-height: 1.5;
+      color: $blueGrey;
+    }
+  }
+  &__btn {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 39px;
+    height: 39px;
+    font-size: 10px;
+    color: #fff;
+    background-color: $yellow;
+    border-radius: 50%;
+    &:hover {
+      background-color: $hoverYellow;
+      color: #fff !important;
+    }
+  }
+}
+.footer-menu__list,
+.footer-categories__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  @media (max-width: $lg) {
+    row-gap: 17px;
+  }
+}
+.price-list {
+  &__title {
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+  &__btn {
+    column-gap: 12px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 214px;
+    @media (max-width: $md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @media (max-width: $md) {
+        width: 149px;
+        height: 40px;
+        column-gap: 5px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+.footer-social {
+  @media (max-width: 400px) {
+    margin-left: 26px;
+  }
+  &__title {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    white-space: normal;
+    @media (max-width: $md) {
+      margin-top: 46px;
+    }
+  }
+  &__row {
+    display: flex;
+    column-gap: 8px;
+  }
+  &__whatsapp,
+  &__telegram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    color: #fff;
+    font-size: 23px;
+    border-radius: 50%;
+  }
+  &__whatsapp {
+    background-color: #00e676;
+  }
+  &__telegram {
+    font-size: 34px;
+    background-color: #40b3e0;
+  }
+}
+.footer-contacts {
+  &__title {
+    margin-bottom: 25px;
+  }
+  &__tel {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+    @media (max-width: $md) {
+      font-size: 0.875rem;
+    }
+  }
+  &__work-hours {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  &__tel-request {
+    display: block;
+    margin-bottom: 25px;
+    font-size: 10px;
+    line-height: 1.5;
+    text-decoration: underline !important;
+  }
+  &__mail {
+    display: block;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  &__mail-text {
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    @media (max-width: $md) {
+      margin-bottom: 10px;
+    }
+  }
+  &__cards {
+    display: flex;
+    column-gap: 5px;
+  }
+  &__visa,
+  &__nastercard {
+    width: 61px;
+    height: 39px;
+    &__img {
+      width: 100%;
+    }
+  }
+}

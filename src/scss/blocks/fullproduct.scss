@@ -1,0 +1,333 @@
+@import "./../base/vars";
+
+.fullproduct {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 40px;
+    padding: 15px 0 60px;
+    @media (max-width: $lg) {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 15px;
+      margin: 0 auto;
+      padding: 0 0 30px;
+    }
+  }
+  &__img {
+    flex: 0 0 48.5%;
+    aspect-ratio: 664 / 471;
+    @media (max-width: $lg) {
+      width: 100%;
+      max-width: 500px;
+    }
+    @media (max-width: $sm) {
+      max-width: 256px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+    }
+  }
+  &__body {
+    padding-top: 35px;
+    @media (max-width: $lg) {
+      padding-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      padding-top: 15px;
+    }
+    @media (max-width: $sm) {
+      padding-top: 0;
+      max-width: 400px;
+    }
+  }
+  &__available {
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.28;
+    color: $malachiteColor;
+  }
+  &__title {
+    margin-bottom: 10px;
+    font-size: 1.875rem;
+    line-height: 1.5;
+    color: $dark;
+    span {
+      font-weight: 800;
+    }
+    @media (max-width: $xl) {
+      font-size: 1.5rem;
+    }
+    @media (max-width: $sm) {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+  }
+  &__size {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 1.33;
+    @media (max-width: $lg) {
+      display: none;
+    }
+    &::before {
+      display: inline-block;
+      font-family: "icons";
+      opacity: 0.23;
+      line-height: 16px;
+    }
+    &._type1::before {
+      content: "\e90f";
+      font-size: 15px;
+    }
+    &._type2::before {
+      content: "\e910";
+      font-size: 20px;
+    }
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    margin-bottom: 20px;
+    @media (max-width: $xl) {
+      column-gap: 20px;
+    }
+    @media (max-width: $sm) {
+      flex-wrap: wrap;
+      row-gap: 20px;
+      column-gap: 27px;
+    }
+  }
+  &__price-item {
+    font-size: 1.875rem;
+    font-weight: 800;
+    line-height: 1.3;
+    white-space: nowrap;
+    @media (max-width: $sm) {
+      font-size: 1.25rem;
+    }
+  }
+  &__counts {
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 113px;
+    line-height: 23px;
+  }
+  &__cart {
+    display: flex;
+    padding: 18px 39.5px;
+    column-gap: 12px;
+    & > div {
+      font-size: 23px;
+    }
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+  &__price-row {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 35px;
+    height: 77px;
+    @media (max-width: $lg) {
+      justify-content: space-evenly;
+    }
+    @media (max-width: $sm) {
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      height: auto;
+    }
+    & > * {
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0px 15px 70px -11px #2b1c010a;
+    }
+  }
+  &__cart-share-row {
+    display: none;
+    @media (max-width: $lg) {
+      display: flex;
+      column-gap: 31px;
+      margin-left: auto;
+    }
+    @media (max-width: $sm) {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+  &__cart-sm {
+    padding: 18px 39.5px;
+    column-gap: 12px;
+    & > div {
+      font-size: 23px;
+    }
+  }
+  &__share-sm {
+    flex: 0 0 59px;
+    padding: 10px;
+    height: 59px;
+    font-size: 20px;
+  }
+  &__share {
+    display: flex;
+    flex: 0 0 77px;
+    padding: 10px;
+    height: 77px;
+    font-size: 20px;
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+  &__delivery {
+    flex: 0 1 316px;
+    padding: 20px 30px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    span {
+      font-weight: bold;
+    }
+    @media (max-width: $xl) {
+      padding: 20px;
+    }
+    @media (max-width: $sm) {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+  &__price-list {
+    flex: 0 1 186px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 30px 37.5px;
+    font-weight: 700;
+    color: $darkBlue;
+    & > div {
+      font-size: 17px;
+    }
+    @media (max-width: $xl) {
+      padding: 30px;
+    }
+    @media (max-width: $sm) {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+  &__properties {
+  }
+}
+.available {
+}
+.properties {
+  font-weight: 300;
+  line-height: 1.5;
+  span {
+    font-weight: 500;
+    color: $dark;
+  }
+  &__properties-top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-bottom: 30px;
+    width: 270px;
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+  }
+  &_description-label {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $dark;
+    &._up::after {
+      display: inline-block;
+      content: "\e903";
+      margin-left: 10px;
+      font-family: "icons";
+      font-size: 12px;
+      color: $darkBlue;
+      transform: rotate(180deg);
+    }
+    &._down::after {
+      display: inline-block;
+      content: "\e903";
+      margin-left: 10px;
+      font-family: "icons";
+      font-size: 12px;
+      color: $darkBlue;
+    }
+  }
+  &__description {
+    margin-bottom: 20px;
+    width: 90%;
+    font-size: 12px;
+    text-align: justify;
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+    &._up {
+      display: block;
+    }
+    &._down {
+      display: none;
+    }
+  }
+  &__properties-label {
+    margin-bottom: 10px;
+    padding-top: 20px;
+    width: 270px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $dark;
+    border-top: 1px dotted rgba(63, 78, 101, 0.3);
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+    &._up::after {
+      display: inline-block;
+      content: "\e903";
+      margin-left: 10px;
+      font-family: "icons";
+      font-size: 12px;
+      color: $darkBlue;
+      transform: rotate(180deg);
+    }
+    &._down::after {
+      display: inline-block;
+      content: "\e903";
+      margin-left: 10px;
+      font-family: "icons";
+      font-size: 12px;
+      color: $darkBlue;
+    }
+  }
+  &__properties-bottom {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 270px;
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+    &._up {
+      display: block;
+    }
+    &._down {
+      display: none;
+    }
+  }
+}

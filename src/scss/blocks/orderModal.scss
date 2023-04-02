@@ -1,0 +1,46 @@
+.order-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    height: 424px;
+    width: 735px;
+    background: white;
+    border-radius: 8px;
+  }
+  &__title {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+  }
+  &__btn-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+  }
+  &._open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,17 @@
+@use "sass:math";
+@import "./base/reset";
+@import "./base/vars";
+@import "./base/mixins";
+@import "./base/fonts";
+@import "./base/base";
+@import "./blocks/header.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/btnback.scss";
+@import "./blocks/catalog.scss";
+@import "./blocks/cart.scss";
+@import "./blocks/fullproduct.scss";
+@import "./blocks/admin.scss";
+@import "./blocks/orderModal.scss";
+@import "./blocks/formModal.scss";
+@import "./blocks/formProduct.scss";
+@import "./blocks/formCategory.scss";
