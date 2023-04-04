@@ -1,33 +1,24 @@
 import { Product } from './products';
 
-export enum SortPropertyEnum {
-  TITLE_DESC = 'title_desc',
-  TITLE_ASC = 'title_asc',
-  PRICE_DESC = 'price_desc',
-  PRICE_ASC = 'price_asc',
-}
-
-export type SortType = {
-  name: 'title' | 'price';
-  sortProperty: 'asc' | 'desc';
-};
+export type SortType = 'title_desc' | 'title_asc' | 'price_desc' | 'price_asc';
 
 export type ParametersType = {
   priceMin: number;
   priceMax: number;
-  manufacturer: string[];
+  manufacturers: string[];
 };
 export interface FilterState {
   sort: SortType;
   category: string;
   priceMin: number;
   priceMax: number;
-  manufacturer: string[];
+  manufacturers: string[];
   filterProducts: Product[];
 }
 
 export enum FiltersActionTypes {
   SET_CATEGORY = 'SET_CATEGORY',
+  SET_SORT = 'SET_SORT',
   FILTER_PRODUCTS = 'FILTER_PRODUCTS',
   SET_PARAMETERS = 'SET_PARAMETERS',
   CLEAR_PARAMETERS = 'CLEAR_PARAMETERS',
@@ -36,6 +27,11 @@ export enum FiltersActionTypes {
 interface SetCategoryFilterAction {
   type: FiltersActionTypes.SET_CATEGORY;
   payload: string;
+}
+
+interface SetSortFilterAction {
+  type: FiltersActionTypes.SET_SORT;
+  payload: SortType;
 }
 
 interface FilterProductsFilterAction {
@@ -51,4 +47,9 @@ interface ClearParametersFilterAction {
   type: FiltersActionTypes.CLEAR_PARAMETERS;
 }
 
-export type FilterAction = SetCategoryFilterAction | FilterProductsFilterAction | SetParametersFilterAction | ClearParametersFilterAction;
+export type FilterAction =
+  | SetCategoryFilterAction
+  | SetSortFilterAction
+  | FilterProductsFilterAction
+  | SetParametersFilterAction
+  | ClearParametersFilterAction;

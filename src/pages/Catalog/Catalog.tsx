@@ -11,13 +11,12 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Catalog: React.FC = () => {
   const { products } = useTypedSelector(state => state.productsRed);
-  const { sort, category, priceMin, priceMax, manufacturer, filterProducts } = useTypedSelector(state => state.filter);
+  const { sort, category, priceMin, priceMax, manufacturers, filterProducts } = useTypedSelector(state => state.filter);
   const { filterAllProducts } = useActions();
 
   React.useEffect(() => {
-    filterAllProducts({ category, sort: { name: sort.name, sortProperty: sort.sortProperty }, priceMin, priceMax, manufacturer, filterProducts: products });
-  }, [category, sort.name, sort.sortProperty, priceMin, priceMax, manufacturer, products]);
-
+    filterAllProducts({ sort, category, priceMin, priceMax, manufacturers, filterProducts: products });
+  }, [category, sort, priceMin, priceMax, manufacturers, products]);
 
   return (
     <div className="_container">

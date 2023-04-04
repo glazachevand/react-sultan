@@ -1,7 +1,11 @@
-import { FiltersActionTypes, FilterAction, FilterState, ParametersType } from '../../types/filter';
+import { FiltersActionTypes, FilterAction, FilterState, ParametersType, SortType } from '../../types/filter';
 
 export function setCategory(category: string): FilterAction {
   return { type: FiltersActionTypes.SET_CATEGORY, payload: category };
+}
+
+export function setSortproperty(sort: SortType): FilterAction {
+  return { type: FiltersActionTypes.SET_SORT, payload: sort };
 }
 
 export function filterAllProducts(filter: FilterState): FilterAction {

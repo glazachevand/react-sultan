@@ -18,6 +18,8 @@
     position: absolute;
     right: 40px;
     top: 20px;
+    background-color: #fff;
+    z-index: 200;
     @media (max-width: $lg) {
       top: 0px;
     }

@@ -5,14 +5,34 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
 
 const Parameters: React.FC = () => {
-  const { priceMin, priceMax, manufacturer, filterProducts } = useTypedSelector(state => state.filter);
+  const { priceMin, priceMax, manufacturers } = useTypedSelector(state => state.filter);
+  const { products } = useTypedSelector(state => state.productsRed);
   const { setParameters, clearParameters } = useActions();
   const [min, setMin] = React.useState(priceMin);
   const [max, setMax] = React.useState(priceMax);
+  const [manuf, setManuf] = React.useState<[string, number][]>();
+  const form = React.useRef<HTMLFormElement>(null);
+
+  React.useEffect(() => {
+    const newMap = new Map();
+    products.forEach(product => {
+      if (newMap.has(product.manufacturer)) {
+        newMap.set(product.manufacturer, newMap.get(product.manufacturer) + 1);
+      } else {
+        newMap.set(product.manufacturer, 1);
+      }
+    });
+    const arr = Array.from(newMap.entries()).sort((a, b) => b[1] - a[1]);
+    setManuf(arr);
+  }, [products]);
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setParameters({ priceMin: min, priceMax: max, manufacturer: [] });
+    const arrChecked = []
+    for (const item of form?.current?.['man']) {
+      if (item.checked) arrChecked.push(item.value);
+    }
+    setParameters({ priceMin: min, priceMax: max, manufacturers: arrChecked });
   }
 
   const onClickClear = () => {
@@ -23,7 +43,7 @@ const Parameters: React.FC = () => {
 
   return (
     <div className="catalog__parameters parameters _up">
-      <form action="#" method="GET" name="parametersForm" onSubmit={onSubmitHandler}>
+      <form ref={form} action="#" method="GET" name="parametersForm" onSubmit={onSubmitHandler}>
         <div className="parameters__price-filter price-filter">
           <h3 className="price-filter__title">Цена ₽</h3>
           <div className="price-filter__inputs">
@@ -34,14 +54,17 @@ const Parameters: React.FC = () => {
         <div className="parameters__manufacturer manufacturer">
           <h3 className="manufacturer__title">Производитель</h3>
           <SearchInput />
+
           <div className="manufacturer__list">
-            <label className="manufacturer__label"><input className="manufacturer__checkbox" type="checkbox" />BioMio <span
-              className="manufacturer__count">(5)</span></label>
-            <label className="manufacturer__label"><input className="manufacturer__checkbox" type="checkbox" />Synergetic <span
-              className="manufacturer__count">(3)</span></label>
-            <label className="manufacturer__label"><input className="manufacturer__checkbox" type="checkbox" />Sesderma <span
-              className="manufacturer__count">(2)</span></label>
+            {manuf && manuf.map((item) =>
+              <label key={item[0]} className="manufacturer__label">
+                <input className="manufacturer__checkbox" type="checkbox" value={item[0]} name="man"
+                  defaultChecked={manufacturers.includes(item[0])} />{item[0]}
+                <span className="manufacturer__count"> ({item[1]})</span>
+              </label>
+            )}
           </div>
+
           <div className="show-all manufacturer__show-all">Показать все</div>
         </div>
         <div className="parameters__actions-row">
