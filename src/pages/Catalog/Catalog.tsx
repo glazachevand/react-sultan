@@ -8,15 +8,26 @@ import Product from '../../components/Product';
 import Pagination from '../../components/Pagination';
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { ItemsPerPage } from '../../types/filter';
+import { Product as ProductType } from '../../types/products';
 
 const Catalog: React.FC = () => {
   const { products } = useTypedSelector(state => state.productsRed);
-  const { sort, category, priceMin, priceMax, manufacturers, filterProducts } = useTypedSelector(state => state.filter);
+  const { sort, category, priceMin, priceMax, manufacturers, filterProducts, page } = useTypedSelector(state => state.filter);
   const { filterAllProducts } = useActions();
+  const [productsPage, setProductsPage] = React.useState<ProductType[]>();
 
   React.useEffect(() => {
-    filterAllProducts({ sort, category, priceMin, priceMax, manufacturers, filterProducts: products });
+    filterAllProducts({ sort, category, priceMin, priceMax, manufacturers, products: products });
   }, [category, sort, priceMin, priceMax, manufacturers, products]);
+
+  React.useEffect(() => {
+    let productsCopy = [...filterProducts];
+    const startItem = (page - 1) * ItemsPerPage;
+    const endItem = page * ItemsPerPage;
+    productsCopy = productsCopy.slice(startItem, endItem);
+    setProductsPage(productsCopy);
+  }, [page, filterProducts]);
 
   return (
     <div className="_container">
@@ -46,8 +57,8 @@ const Catalog: React.FC = () => {
             </div>
             <div className="catalog__main">
               <div className="catalog__products">
-                {filterProducts.length ?
-                  filterProducts.map((product) => <Product key={product.id} {...product} />)
+                {productsPage?.length ?
+                  productsPage.map((product) => <Product key={product.id} {...product} />)
                   : <h2 className="title2">Ничего не найдено  <span>😕</span></h2>}
               </div>
               <Pagination />

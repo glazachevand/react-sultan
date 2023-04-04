@@ -32,7 +32,7 @@ const Parameters: React.FC = () => {
 
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const arrChecked = []
+    const arrChecked = [];
     for (const item of form?.current?.['man']) {
       if (item.checked) arrChecked.push(item.value);
     }

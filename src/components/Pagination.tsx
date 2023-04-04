@@ -1,17 +1,24 @@
 import React from 'react';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ItemsPerPage } from '../types/filter';
+import { useActions } from '../hooks/useActions';
 
 const Pagination: React.FC = () => {
+  const { filterProducts, page } = useTypedSelector(state => state.filter);
+  const { products } = useTypedSelector(state => state.productsRed);
+  const { setCurrentPage } = useActions();
+  const allPages = Math.ceil(filterProducts.length / ItemsPerPage);
+
   return (
-    <div className="catalog__pagination pagination">
-      <a href="#!" className="pagination__prev _icon-left"></a>
+    <div className="catalog__pagination pagination" >
+      {page !== 1 && <div className="pagination__prev _icon-left" onClick={() => setCurrentPage(page - 1)}></div>}
       <ul className="pagination__list">
-        <li><a href="#!" className="pagination__item _active">1</a></li>
-        <li><a href="#!" className="pagination__item">2</a></li>
-        <li><a href="#!" className="pagination__item">3</a></li>
-        <li><a href="#!" className="pagination__item">4</a></li>
-        <li><a href="#!" className="pagination__item">5</a></li>
+        {[...new Array(allPages)].map((_, p) =>
+          <li key={p} className={page === p + 1 ? 'pagination__item _active' : 'pagination__item'}
+            onClick={() => setCurrentPage(p + 1)}>{p + 1}</li>
+        )}
       </ul>
-      <a href="#!" className="pagination__next _icon-right"></a>
+      {page !== allPages && <div className="pagination__next _icon-right" onClick={() => setCurrentPage(page + 1)}></div>}
     </div>
   );
 };

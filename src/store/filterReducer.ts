@@ -8,10 +8,12 @@ const initialState: FilterState = {
   priceMin: 10,
   priceMax: 10000,
   manufacturers: getManufactures(data.products),
+  page: 1,
   filterProducts: data.products,
 };
 
 export const filterReducer = (state = initialState, action: FilterAction): FilterState => {
+  let productsCopy;
   switch (action.type) {
     case FiltersActionTypes.SET_CATEGORY:
       return { ...state, category: action.payload };
@@ -19,8 +21,11 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
     case FiltersActionTypes.SET_SORT:
       return { ...state, sort: action.payload };
 
+    case FiltersActionTypes.SET_PAGE:
+      return { ...state, page: action.payload };
+
     case FiltersActionTypes.FILTER_PRODUCTS:
-      let productsCopy = [...action.payload.filterProducts];
+      productsCopy = [...action.payload.products];
 
       if (action.payload.category !== 'Все') {
         productsCopy = productsCopy.filter((product) => product.typecare.includes(action.payload.category));

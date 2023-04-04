@@ -7,14 +7,25 @@ export type ParametersType = {
   priceMax: number;
   manufacturers: string[];
 };
+export type FilterType = {
+  sort: SortType;
+  category: string;
+  priceMin: number;
+  priceMax: number;
+  manufacturers: string[];
+  products: Product[];
+};
 export interface FilterState {
   sort: SortType;
   category: string;
   priceMin: number;
   priceMax: number;
   manufacturers: string[];
+  page: number;
   filterProducts: Product[];
 }
+
+export const ItemsPerPage = 9;
 
 export enum FiltersActionTypes {
   SET_CATEGORY = 'SET_CATEGORY',
@@ -22,6 +33,7 @@ export enum FiltersActionTypes {
   FILTER_PRODUCTS = 'FILTER_PRODUCTS',
   SET_PARAMETERS = 'SET_PARAMETERS',
   CLEAR_PARAMETERS = 'CLEAR_PARAMETERS',
+  SET_PAGE = 'SET_PAGE',
 }
 
 interface SetCategoryFilterAction {
@@ -34,9 +46,14 @@ interface SetSortFilterAction {
   payload: SortType;
 }
 
+interface SetPageFilterAction {
+  type: FiltersActionTypes.SET_PAGE;
+  payload: number;
+}
+
 interface FilterProductsFilterAction {
   type: FiltersActionTypes.FILTER_PRODUCTS;
-  payload: FilterState;
+  payload: FilterType;
 }
 
 interface SetParametersFilterAction {
@@ -51,6 +68,7 @@ interface ClearParametersFilterAction {
 export type FilterAction =
   | SetCategoryFilterAction
   | SetSortFilterAction
+  | SetPageFilterAction
   | FilterProductsFilterAction
   | SetParametersFilterAction
   | ClearParametersFilterAction;
