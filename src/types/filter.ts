@@ -45,6 +45,7 @@ interface SetParametersFilterAction {
 }
 interface ClearParametersFilterAction {
   type: FiltersActionTypes.CLEAR_PARAMETERS;
+  payload: string[];
 }
 
 export type FilterAction =

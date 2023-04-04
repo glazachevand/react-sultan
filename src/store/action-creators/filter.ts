@@ -16,6 +16,6 @@ export function setParameters(parameters: ParametersType): FilterAction {
   return { type: FiltersActionTypes.SET_PARAMETERS, payload: parameters };
 }
 
-export function clearParameters(): FilterAction {
-  return { type: FiltersActionTypes.CLEAR_PARAMETERS };
+export function clearParameters(manufactures: string[]): FilterAction {
+  return { type: FiltersActionTypes.CLEAR_PARAMETERS, payload: manufactures };
 }

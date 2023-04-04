@@ -57,7 +57,7 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
       return { ...state, priceMin: action.payload.priceMin, priceMax: action.payload.priceMax, manufacturers: action.payload.manufacturers };
 
     case FiltersActionTypes.CLEAR_PARAMETERS:
-      return { ...state, priceMin: 10, priceMax: 10000, manufacturers: [] };
+      return { ...state, priceMin: 10, priceMax: 10000, manufacturers: action.payload };
 
     default:
       return state;

@@ -122,6 +122,9 @@ body {
     font-size: 8px;
     color: $darkBlue;
   }
+  &._up::after {
+    transform: rotate(180deg);
+  }
 }
 .remove-btn {
   width: 59px;
