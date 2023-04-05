@@ -13,6 +13,7 @@ const Parameters: React.FC = () => {
   const [min, setMin] = React.useState(priceMin);
   const [max, setMax] = React.useState(priceMax);
   const [manuf, setManuf] = React.useState<[string, number][]>();
+  const [checkedManuf, setCheckedManuf] = React.useState<{ [key: string]: boolean }>({});
   const [show, setShow] = React.useState(true);
   const [searchBrand, setSearchBrand] = React.useState('');
   const form = React.useRef<HTMLFormElement>(null);
@@ -33,17 +34,27 @@ const Parameters: React.FC = () => {
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const arrChecked = [];
-    for (const item of form?.current?.['man']) {
-      if (item.checked) arrChecked.push(item.value);
+
+    if (manuf) {
+      for (const item of manuf) {
+        if (checkedManuf[item[0]]) arrChecked.push(item[0]);
+      }
     }
+
+    console.log(arrChecked);
     setParameters({ priceMin: min, priceMax: max, manufacturers: arrChecked });
   }
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckedManuf((state) => { return { ...state, [e.target.name]: e.target.checked } });
+  };
 
   const onClickClear = () => {
     setMin(10);
     setMax(10000);
     setSearchBrand('');
     clearParameters(getManufactures(products));
+    setCheckedManuf({});
   }
 
   const searchHandler = () => {
@@ -78,8 +89,8 @@ const Parameters: React.FC = () => {
           <div className="manufacturer__list">
             {manuf && manuf.map((item, index) => (!show || show && index < manufNumber) &&
               <label key={item[0]} className="manufacturer__label">
-                <input className="manufacturer__checkbox" type="checkbox" value={item[0]} name="man"
-                  defaultChecked={manufacturers.includes(item[0])} />{item[0]}
+                <input className="manufacturer__checkbox" type="checkbox" value={item[0]} name={item[0]}
+                  checked={checkedManuf[item[0]] || false} onChange={onChangeHandler} />{item[0]}
                 <span className="manufacturer__count"> ({item[1]})</span>
               </label>
             )}
