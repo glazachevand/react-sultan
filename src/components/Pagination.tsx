@@ -5,20 +5,26 @@ import { useActions } from '../hooks/useActions';
 
 const Pagination: React.FC = () => {
   const { filterProducts, page } = useTypedSelector(state => state.filter);
-  const { products } = useTypedSelector(state => state.productsRed);
   const { setCurrentPage } = useActions();
-  const allPages = Math.ceil(filterProducts.length / ItemsPerPage);
+  const allPagesCount = Math.ceil(filterProducts.length / ItemsPerPage);
+  const [pages, setPages] = React.useState([...Array(allPagesCount)].map((_, i) => i + 1));
+
+  React.useEffect(() => {
+    const allPagesCount = Math.ceil(filterProducts.length / ItemsPerPage);
+    setPages([...Array(allPagesCount)].map((_, i) => i + 1));
+    setCurrentPage(1);
+  }, [filterProducts]);
 
   return (
     <div className="catalog__pagination pagination" >
       {page !== 1 && <div className="pagination__prev _icon-left" onClick={() => setCurrentPage(page - 1)}></div>}
       <ul className="pagination__list">
-        {[...new Array(allPages)].map((_, p) =>
+        {pages.map((_, p) =>
           <li key={p} className={page === p + 1 ? 'pagination__item _active' : 'pagination__item'}
             onClick={() => setCurrentPage(p + 1)}>{p + 1}</li>
         )}
       </ul>
-      {page !== allPages && <div className="pagination__next _icon-right" onClick={() => setCurrentPage(page + 1)}></div>}
+      {page !== pages.length && <div className="pagination__next _icon-right" onClick={() => setCurrentPage(page + 1)}></div>}
     </div>
   );
 };

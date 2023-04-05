@@ -40,8 +40,6 @@ const Parameters: React.FC = () => {
         if (checkedManuf[item[0]]) arrChecked.push(item[0]);
       }
     }
-
-    console.log(arrChecked);
     setParameters({ priceMin: min, priceMax: max, manufacturers: arrChecked });
   }
 
