@@ -1,13 +1,15 @@
 import React from 'react';
+import cl from './RemoveBtn.module.scss'
 
 type RemoveBtnProps = {
   action: () => void;
+  cssClass?: string
 };
 
 
-const RemoveBtn: React.FC<RemoveBtnProps> = ({ action }) => {
+const RemoveBtn: React.FC<RemoveBtnProps> = ({ action, cssClass }) => {
   return (
-    <button type="button" className="cart__remove-btn remove-btn btn" onClick={action}></button>
+    <button type="button" className={[cl.removeBtn, cssClass, 'btn'].join(' ')} onClick={action}></button>
   );
 };
 

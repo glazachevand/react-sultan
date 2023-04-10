@@ -4,7 +4,6 @@ export interface CartItemType {
   url: string;
   brand: string;
   description: string;
-  //typesize: 'вес' | 'объем';
   typesize: string;
   size: string;
   price: number;

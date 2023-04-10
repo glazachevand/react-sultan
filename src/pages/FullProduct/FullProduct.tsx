@@ -40,7 +40,7 @@ const FullProduct: React.FC = () => {
         <>
           <Link to="/admin"><button className="admin__btn yellow-btn btn">Админ</button></Link>
           <Breadcrumbs />
-          <BtnBack />
+          <BtnBack cssClass={'pink-bg btn'} />
           <section className="fullproduct">
             <div className="fullproduct__container">
               <div className="fullproduct__img">

@@ -1,13 +1,18 @@
 import React from 'react';
+import cl from './BtnBack.module.scss'
 
-const BtnBack: React.FC = () => {
+interface BtnBackProps {
+  cssClass?: string
+}
+
+const BtnBack: React.FC<BtnBackProps> = ({ cssClass }) => {
 
   return (
-    <div className="btn-back">
-      <a href="#!" className="btn-back__btn pink-bg btn">
+    <div className={cl.btnBack}>
+      <a href="#!" className={[cl.btnBack__btn, cssClass].join(' ')}>
         <div className="_icon-left_page"></div>
       </a>
-      <div className="btn-back__text">Назад</div>
+      <div className={cl.btnBack__text}>Назад</div>
     </div>);
 };
 

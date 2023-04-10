@@ -26,7 +26,7 @@ const AdminItem: React.FC<Product> = (product) => {
       </div>
       <div className="admin__actions">
         <button className="admin__add-btn yellow-btn btn" onClick={() => setModal(true)}>редактировать</button>
-        <RemoveBtn action={onClickDelete} />
+        <RemoveBtn action={onClickDelete} cssClass={'admin__remove-btn'} />
       </div>
       {modal && (
         <FormModal visible={modal} setVisible={setModal}>

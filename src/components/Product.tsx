@@ -18,7 +18,7 @@ const Product: React.FC<ProductItem> = ({ id, title, url, barcode, manufacturer,
   return (
     <div className="product">
       <div className="product__container">
-        <PopularBtn />
+        {/* <PopularBtn /> */}
         <Link to={`/product/${id}`} rel="noreferrer"><img src={productImg} alt="product" className="product__img" /></Link>
         <div className={typesize === 'вес' ? `product__size _type2` : `product__size _type1`}>{size}</div>
         <Link to={`/product/${id}`}><h3 className="product__title"><span>{brand} </span>{title}</h3></Link>

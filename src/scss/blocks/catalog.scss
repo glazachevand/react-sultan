@@ -97,20 +97,6 @@
     }
   }
 }
-.btn-back {
-  &__btn {
-    margin-right: 5px;
-    width: 32px;
-    height: 32px;
-  }
-  &__text {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-}
 .sort {
   font-size: 1rem;
   line-height: 1.5;
@@ -199,6 +185,9 @@
     font-size: 1rem;
     line-height: 1.5;
     text-transform: uppercase;
+  }
+  &__remove-btn {
+    flex: 0 0 auto;
   }
   &__btn-down {
     display: none;

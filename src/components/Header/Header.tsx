@@ -74,7 +74,7 @@ const Header: React.FC = () => {
           </div>
           <a href="#" className="header__price-list btn yellow-btn" download="">Прайс-лист <div className="_icon-download"></div>
           </a>
-          <CartBtn />
+          <CartBtn cssClass={'header__cart'} />
         </div>
       </div>
       <div className="header__menu-row-lg">
@@ -87,16 +87,7 @@ const Header: React.FC = () => {
             </div>
           </div>
           <a href="#!" className="header__logo"><img src={logo} alt="logo" /></a>
-          <a href="#" className="cart header__cart">
-            <div className="cart__img">
-              <div className="_icon-basket"></div>
-              <div className="cart__count">1</div>
-            </div>
-            <div className="cart__body">
-              <div className="cart__text">Корзина</div>
-              <div className="cart__price">12 478 ₸</div>
-            </div>
-          </a>
+          <CartBtn cssClass={'header__cart'} />
         </div>
       </div>
       <div className="header__logo-row-lg">

@@ -36,7 +36,7 @@ const Admin: React.FC = () => {
   return (
     <div className="_container">
       <Breadcrumbs />
-      <BtnBack />
+      <BtnBack cssClass={'pink-bg btn'} />
       <section className="admin">
         <div className="admin__container">
           <h1 className="admin__title title1">Администрирование</h1>

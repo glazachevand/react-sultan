@@ -16,7 +16,6 @@ const Parameters: React.FC = () => {
   const [checkedManuf, setCheckedManuf] = React.useState<{ [key: string]: boolean }>({});
   const [show, setShow] = React.useState(true);
   const [searchBrand, setSearchBrand] = React.useState('');
-  const form = React.useRef<HTMLFormElement>(null);
 
   React.useEffect(() => {
     const newMap = new Map();
@@ -61,7 +60,7 @@ const Parameters: React.FC = () => {
 
   return (
     <div className="catalog__parameters parameters _up">
-      <form ref={form} action="#" method="GET" name="parametersForm" onSubmit={onSubmitHandler}>
+      <form action="#" method="GET" name="parametersForm" onSubmit={onSubmitHandler}>
         <div className="parameters__price-filter price-filter">
           <h3 className="price-filter__title">Цена ₽</h3>
           <div className="price-filter__inputs">
@@ -98,7 +97,7 @@ const Parameters: React.FC = () => {
         </div>
         <div className="parameters__actions-row">
           <input type="submit" defaultValue="Показать" className="parameters__submit yellow-btn btn" />
-          <RemoveBtn action={onClickClear} />
+          <RemoveBtn action={onClickClear} cssClass={'parameters__remove-btn'} />
         </div>
       </form>
     </div>

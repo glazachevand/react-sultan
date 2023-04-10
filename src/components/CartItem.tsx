@@ -29,7 +29,7 @@ const CartItem: React.FC<CartItemType> = (cartItem) => {
         <div className="cart__count-line"></div>
         <div className="cart__price-item">{cartItem.price * cartItem.count} ₽</div>
         <div className="cart__count-line"></div>
-        <RemoveBtn action={onClickDelete} />
+        <RemoveBtn action={onClickDelete} cssClass={'cart__remove-btn'} />
       </div>
     </div>
   );

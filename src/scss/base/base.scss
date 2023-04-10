@@ -126,23 +126,6 @@ body {
     transform: rotate(180deg);
   }
 }
-.remove-btn {
-  width: 59px;
-  height: 59px;
-  background-color: $yellow;
-  border-radius: 50%;
-  &:hover {
-    background-color: $hoverYellow;
-    color: #fff !important;
-  }
-  &::after {
-    display: inline-block;
-    content: "\e90b";
-    font-family: "icons";
-    font-size: 18px;
-    color: #fff;
-  }
-}
 .minus,
 .plus {
   width: 34px;
