@@ -8,7 +8,6 @@ export type ParametersType = {
   manufacturers: string[];
 };
 export type FilterType = {
-  sort: SortType;
   category: string;
   priceMin: number;
   priceMax: number;

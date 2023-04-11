@@ -19,25 +19,15 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
       return { ...state, category: action.payload };
 
     case FiltersActionTypes.SET_SORT:
-      return { ...state, sort: action.payload };
+      productsCopy = [...state.filterProducts];
 
-    case FiltersActionTypes.SET_PAGE:
-      return { ...state, page: action.payload };
-
-    case FiltersActionTypes.FILTER_PRODUCTS:
-      productsCopy = [...action.payload.products];
-
-      if (action.payload.category !== 'Все') {
-        productsCopy = productsCopy.filter((product) => product.typecare.includes(action.payload.category));
-      }
-
-      switch (action.payload.sort) {
+      switch (action.payload) {
         case 'title_asc':
-          productsCopy = productsCopy.sort((a, b) => a.brand.localeCompare(b.brand));
+          productsCopy = productsCopy.sort((a, b) => `${a.brand} ${a.title}`.localeCompare(`${b.brand} ${b.title}`));
           break;
 
         case 'title_desc':
-          productsCopy = productsCopy.sort((a, b) => b.brand.localeCompare(a.brand));
+          productsCopy = productsCopy.sort((a, b) => `${b.brand} ${b.title}`.localeCompare(`${a.brand} ${a.title}`));
           break;
 
         case 'price_asc':
@@ -50,6 +40,18 @@ export const filterReducer = (state = initialState, action: FilterAction): Filte
 
         default:
           break;
+      }
+
+      return { ...state, sort: action.payload, filterProducts: productsCopy };
+
+    case FiltersActionTypes.SET_PAGE:
+      return { ...state, page: action.payload };
+
+    case FiltersActionTypes.FILTER_PRODUCTS:
+      productsCopy = [...action.payload.products];
+
+      if (action.payload.category !== 'Все') {
+        productsCopy = productsCopy.filter((product) => product.typecare.includes(action.payload.category));
       }
 
       productsCopy = productsCopy.filter((product) => product.price < action.payload.priceMax && product.price > action.payload.priceMin);

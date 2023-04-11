@@ -13,13 +13,13 @@ import { Product as ProductType } from '../../types/products';
 
 const Catalog: React.FC = () => {
   const { products } = useTypedSelector(state => state.productsRed);
-  const { sort, category, priceMin, priceMax, manufacturers, filterProducts, page } = useTypedSelector(state => state.filter);
+  const { category, priceMin, priceMax, manufacturers, filterProducts, page } = useTypedSelector(state => state.filter);
   const { filterAllProducts } = useActions();
   const [productsPage, setProductsPage] = React.useState<ProductType[]>();
 
   React.useEffect(() => {
-    filterAllProducts({ sort, category, priceMin, priceMax, manufacturers, products: products });
-  }, [category, sort, priceMin, priceMax, manufacturers, products]);
+    filterAllProducts({ category, priceMin, priceMax, manufacturers, products: products });
+  }, [category, priceMin, priceMax, manufacturers, products]);
 
   React.useEffect(() => {
     let productsCopy = [...filterProducts];
