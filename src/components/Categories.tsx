@@ -2,7 +2,7 @@ import React from 'react';
 import { useTypedSelector } from "./../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
 interface CategoriesProps {
-  cssClass: string
+  cssClass?: string
 };
 
 const Categories: React.FC<CategoriesProps> = ({ cssClass }) => {
@@ -20,7 +20,7 @@ const Categories: React.FC<CategoriesProps> = ({ cssClass }) => {
     <>
       {
         categories.length && categories.map((item, i) => (
-          <li className={categoryIndex === i ? `${cssClass} _active` : `${cssClass}`} key={String(item)} onClick={() => onChangeCategory(i)}>{item}</li>))
+          <li className={categoryIndex === i ? `${cssClass} _active` : `${cssClass}`} key={String(item)} onClick={() => onChangeCategory(i)} data-testid="category-item">{item}</li>))
       }
     </>
   );

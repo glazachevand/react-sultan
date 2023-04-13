@@ -7,10 +7,10 @@ const Breadcrumbs: React.FC = () => {
 
   return (
     <nav className={cl.breadcrumb}>
-      <ul className={cl.breadcrumb__list}>
+      <ul className={cl.breadcrumb__list} data-testid="breadcrumbs-list">
         <li><Link to='/' className={cl.breadcrumb__link}>Главная</Link></li>
-        <li><Link to='/' className={cl.breadcrumb__link}>Каталог</Link></li>
-        {location.pathname.includes('cart') && (<li><div className={cl.breadcrumb__item}>Корзина</div></li>)}
+        <li><Link to='/' className={cl.breadcrumb__link} data-testid="catalog-link">Каталог</Link></li>
+        {location.pathname.includes('cart') && (<li><div className={cl.breadcrumb__item} data-testid="breadcrumbs-cart">Корзина</div></li>)}
         {location.pathname.includes('product') && (<li><div className={cl.breadcrumb__item}>Название товара</div></li>)}
         {location.pathname.includes('admin') && (<li><div className={cl.breadcrumb__item}>Администрирование</div></li>)}
       </ul>

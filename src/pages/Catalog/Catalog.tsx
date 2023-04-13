@@ -30,8 +30,8 @@ const Catalog: React.FC = () => {
   }, [page, filterProducts]);
 
   return (
-    <div className="_container">
-      <Link to="/admin"><button className="admin__btn yellow-btn btn">Админ</button></Link>
+    <div className="_container" data-testid="main-page">
+      <Link to="/admin" data-testid="admin-link"><button className="admin__btn yellow-btn btn">Админ</button></Link>
       <Breadcrumbs />
       <section className="catalog">
         <div className="catalog__container">

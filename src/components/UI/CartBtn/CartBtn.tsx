@@ -24,7 +24,7 @@ const CartBtn: React.FC<CartBtnProps> = ({ cssClass }) => {
   }, [items]);
 
   return (
-    <Link to='/cart' className={[cl.cart, cssClass].join(' ')}>
+    <Link to='/cart' className={[cl.cart, cssClass].join(' ')} data-testid="cart-link">
       <div className={cl.cart__img}>
         <div className={[cl.cart__icon, '_icon-basket'].join(' ')}></div>
         <div className={cl.cart__count}>{totalCount}</div>

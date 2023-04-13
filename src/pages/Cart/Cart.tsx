@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
   };
 
   return (
-    <div className="_container">
+    <div className="_container" data-testid="cart-page">
       <Link to="/admin"><button className="admin__btn yellow-btn btn">Админ</button></Link>
       <Breadcrumbs />
       <BtnBack cssClass={'pink-bg btn'} />
@@ -26,7 +26,7 @@ const Cart: React.FC = () => {
         <div className="cart__container">
           <h1 className="cart__title title1">Корзина</h1>
           {items.length ?
-            items.map(item => <CartItem key={item.id} {...item} />)
+            items.map(item => <CartItem key={item.id} {...item} data-testid="cart-item" />)
             : <h2 className="title2">в корзине ничего нет  <span>😕</span></h2>}
           <div className="cart__bottom">
             <button className="cart__order yellow-btn btn" disabled={!totalPrice} onClick={onClickClear}>Оформить заказ</button>

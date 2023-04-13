@@ -34,7 +34,7 @@ const Admin: React.FC = () => {
   }, [products, categories]);
 
   return (
-    <div className="_container">
+    <div className="_container" data-testid="admin-page">
       <Breadcrumbs />
       <BtnBack cssClass={'pink-bg btn'} />
       <section className="admin">
