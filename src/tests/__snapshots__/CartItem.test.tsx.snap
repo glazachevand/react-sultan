@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test cart item Сheck totalprice 1`] = `
+<div
+  class="cart__price-item"
+  data-testid="totalPrice"
+>
+  4000
+   ₽
+</div>
+`;

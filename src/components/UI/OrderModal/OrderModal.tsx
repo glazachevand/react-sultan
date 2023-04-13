@@ -11,7 +11,7 @@ interface OrderModalProps {
 const OrderModal: React.FC<OrderModalProps> = ({ children, visible, setVisible }) => {
 
   return (
-    <div className={visible ? `${cl.orderModal} ${cl.orderModal_open}` : cl.orderModal} onClick={() => setVisible(false)}>
+    <div className={visible ? `${cl.orderModal} ${cl.orderModal_open}` : cl.orderModal} onClick={() => setVisible(false)} data-testid="order-modal">
       <div className={cl.orderModal__content} onClick={(e) => e.stopPropagation()}>
         <img src={orderimg} alt="" />
         <h1 className={cl.orderModal__title}>Спасибо за заказ</h1>

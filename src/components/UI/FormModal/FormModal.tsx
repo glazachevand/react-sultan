@@ -10,7 +10,7 @@ interface FormModalProps {
 const FormModal: React.FC<FormModalProps> = ({ children, visible, setVisible }) => {
 
   return (
-    <div className={visible ? `${cl.formModal} ${cl.formModal_open}` : cl.formModal} onClick={() => setVisible(false)}>
+    <div className={visible ? `${cl.formModal} ${cl.formModal_open}` : cl.formModal} onClick={() => setVisible(false)} data-testid="form-modal">
       <div className={cl.formModal__content} onClick={(e) => e.stopPropagation()}>
         <button className={cl.formModal__btnClose} onClick={() => setVisible(false)}>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

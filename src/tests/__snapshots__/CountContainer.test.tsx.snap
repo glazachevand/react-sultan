@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test counter container Click on buttons - check counts 1`] = `
+<div
+  class="count"
+  data-testid="count"
+>
+  3
+</div>
+`;
+
+exports[`Test counter container Click on buttons 1`] = `
+<div
+  class="count"
+  data-testid="count"
+>
+  3
+</div>
+`;

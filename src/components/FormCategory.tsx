@@ -40,8 +40,8 @@ const FormCategory: React.FC<FormCategoryProps> = ({ setVisible }) => {
   }
 
   return (
-    <div className='form-category'>
-      <form action="#" name='productcategory' onSubmit={onSubmitHandler}>
+    <div className='form-category' data-testid="form-category-page">
+      <form action="#" name='productcategory' onSubmit={onSubmitHandler} data-testid="form-category">
         <h2 className="form-category__title">Категории</h2>
         <div ref={container} className='form-category__inputs-container'>
           {categories && categories.map((category, index) => (

@@ -33,9 +33,9 @@ const CountContainer: React.FC<CountContainerProps> = ({ id }) => {
 
   return (
     <div className="cart__counts">
-      <button className="minus" onClick={onClickMinus} disabled={cartItem?.count === 1}>-</button>
-      <div className="count">{cartItem?.count || 0}</div>
-      <button className="plus" onClick={onClickPlus}>+</button>
+      <button className="minus" onClick={onClickMinus} disabled={cartItem?.count === 1} data-testid="minus">-</button>
+      <div className="count" data-testid="count">{cartItem?.count || 0}</div>
+      <button className="plus" onClick={onClickPlus} data-testid="plus">+</button>
     </div>
   );
 };

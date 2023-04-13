@@ -9,7 +9,7 @@ type RemoveBtnProps = {
 
 const RemoveBtn: React.FC<RemoveBtnProps> = ({ action, cssClass }) => {
   return (
-    <button type="button" className={[cl.removeBtn, cssClass, 'btn'].join(' ')} onClick={action}></button>
+    <button type="button" className={[cl.removeBtn, cssClass, 'btn'].join(' ')} onClick={action} data-testid="delete-btn"></button>
   );
 };
 
