@@ -1,0 +1,10 @@
+@import "./../base/vars";
+
+.btn-back {
+  display: none;
+  @media (max-width: $sm) {
+    padding-top: 20px;
+    display: block;
+    padding-bottom: 25px;
+  }
+}
